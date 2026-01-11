@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://o4oxja6go7h3"]
+
+[ext_resource type="PackedScene" uid="uid://de0fuh3nhwbxf" path="res://UI/Combat_Ui/card_arc.tscn" id="1_b8g1o"]
+[ext_resource type="Script" uid="uid://j8cq8n23f40l" path="res://Src/UI/CardTargetSelector.cs" id="1_yxj64"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62f3s"]
+size = Vector2(4, 4)
+
+[node name="CardTargetSelector" type="Node2D"]
+script = ExtResource("1_yxj64")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_62f3s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CardArc" parent="CanvasLayer" instance=ExtResource("1_b8g1o")]

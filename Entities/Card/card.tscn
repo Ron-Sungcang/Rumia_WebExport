@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://cygaiu7k1hofe"]
+
+[ext_resource type="Theme" uid="uid://c2gm2tvw4mttc" path="res://Entities/Card/card_theme.tres" id="1_dlk08"]
+[ext_resource type="Script" uid="uid://dgf62uku1b6p7" path="res://Src/Card/Card.cs" id="2_yhfuh"]
+[ext_resource type="Script" uid="uid://cy17he1hdbnjn" path="res://Src/Card/States/Card_State_Machine.cs" id="3_rrc88"]
+[ext_resource type="Script" uid="uid://hyr05u6tpobo" path="res://Src/Card/States/Card_State.cs" id="4_b2a2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhfuh"]
+size = Vector2(98.375, 150)
+
+[node name="Card_UI" type="Control"]
+z_index = 1
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 3
+anchor_left = 0.45400003
+anchor_top = 0.625
+anchor_right = 0.45400003
+anchor_bottom = 0.625
+offset_left = -0.32003784
+offset_top = -150.0
+offset_right = 99.67996
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dlk08")
+script = ExtResource("2_yhfuh")
+
+[node name="Color" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0.050980393, 0.58431375, 1)
+
+[node name="State" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "state"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Selector" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Selector"]
+position = Vector2(47.1875, 75)
+shape = SubResource("RectangleShape2D_yhfuh")
+
+[node name="CardStateMachine" type="Node" parent="."]
+script = ExtResource("3_rrc88")
+
+[node name="Clicked" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_b2a2i")
+currentstate = 2
+
+[node name="Idle" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_b2a2i")
+
+[node name="Hovering" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_b2a2i")
+currentstate = 1
+
+[node name="Exited" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_b2a2i")
+currentstate = 4

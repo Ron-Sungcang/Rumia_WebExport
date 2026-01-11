@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgmjykwrka0sc"]
+
+[ext_resource type="Script" uid="uid://bxkbtumptcuix" path="res://Src/Manager/StageManager.cs" id="1_xylyp"]
+[ext_resource type="Resource" uid="uid://d3247uctf7d7o" path="res://Entities/Stages/Resource/TestCombatRes.tres" id="2_sqw1v"]
+
+[node name="StageManager" type="Node2D" node_paths=PackedStringArray("OverWorldStages")]
+script = ExtResource("1_xylyp")
+SelectedCombatRes = ExtResource("2_sqw1v")
+OverWorldStages = []

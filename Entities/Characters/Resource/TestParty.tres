@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PartyRes" load_steps=3 format=3 uid="uid://duborm3voh33y"]
+
+[ext_resource type="Script" uid="uid://c3wfq4j32rubu" path="res://Src/Units/PartyRes.cs" id="1_2juqy"]
+[ext_resource type="PackedScene" uid="uid://ho6pa146qo6c" path="res://Entities/Characters/Scenes/SampleUnit.tscn" id="1_w7nfb"]
+
+[resource]
+script = ExtResource("1_2juqy")
+UnitName = "Test Party Unit"
+MaxHP = 6
+UnitPrefab = ExtResource("1_w7nfb")
