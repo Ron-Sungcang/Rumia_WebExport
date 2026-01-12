@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Rumia_Web"
+run/main_scene="uid://b7nxxxw076fyq"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Src/Manager/GameManager.gd"
 
 [dotnet]
 

@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtyut41y1kvxk"]
-
-[ext_resource type="Script" uid="uid://dasibei3heavn" path="res://Src/Manager/UnitManager.cs" id="1_dj2hv"]
-[ext_resource type="Resource" uid="uid://duborm3voh33y" path="res://Entities/Characters/Resource/TestParty.tres" id="2_14b0w"]
-
-[node name="UnitManager" type="Node2D"]
-script = ExtResource("1_dj2hv")
-partyRes = Array[Object]([ExtResource("2_14b0w")])

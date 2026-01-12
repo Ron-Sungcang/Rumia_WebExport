@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyrm2nn6fqj3c"]
-
-[ext_resource type="Script" uid="uid://dasibei3heavn" path="res://Src/Manager/UnitManager.cs" id="1_bvfqf"]
-
-[node name="UnitManagerScene" type="Node2D"]
-script = ExtResource("1_bvfqf")
