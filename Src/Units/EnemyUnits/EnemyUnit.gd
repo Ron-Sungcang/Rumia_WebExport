@@ -2,7 +2,7 @@ extends Unit
 class_name EnemyUnit
 
 @export var area_2d: Area2D
-@export var unit_played: bool = false
+var unit_played: bool = false
 
 var UnitPlayed: bool:
 	get:

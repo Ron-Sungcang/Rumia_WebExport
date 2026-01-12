@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Src/Manager/GameManager.gd"
 UnitManager="*res://Src/Manager/UnitManager.gd"
+CursorManager="*res://Src/Manager/CursorManager.gd"
 
 [dotnet]
 

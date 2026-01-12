@@ -3,7 +3,6 @@ class_name PartyUnit
 
 @export var area_2d: Area2D
 
-
 func _ready() -> void:
 	if area_2d == null:
 		print("PartyUnit, unset collision box")
