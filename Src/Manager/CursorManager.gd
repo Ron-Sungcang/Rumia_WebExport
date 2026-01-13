@@ -1,7 +1,7 @@
 extends Node
 
 # Currently active UI control that owns the cursor
-@export var current_ui: Control
+var current_ui: Control
 
 func _ready() -> void:
 	pass

@@ -4,7 +4,7 @@ enum GameState
 {
 	START_SCREEN,
 	OVERWORLD,
-	COMBAR
+	COMBAT
 }
 
 var current_game_state
