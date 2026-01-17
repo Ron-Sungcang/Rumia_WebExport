@@ -76,8 +76,8 @@ func _combat_state_entered(new_state: CombatState) -> void:
 		# Return to overworld here
 
 func start_combat() -> void:
-	GameManager.Instance.set_game_state(GameManager.GameState.COMBAT)
-	CursorManager.Instance.current_ui = ui
+	GameManager.set_game_state(GameManager.GameState.COMBAT)
+	CursorManager.current_ui = ui
 
 	clear_enemy_slots()
 	clear_player_slots()
@@ -86,7 +86,7 @@ func start_combat() -> void:
 
 	set_process(true)
 
-	print("Current game state:", GameManager.Instance.get_game_state())
+	print("Current game state:", GameManager.get_game_state())
 	print("Starting Combat")
 
 	end_turn_button.disabled = true
@@ -100,19 +100,23 @@ func start_combat() -> void:
 
 
 func load_combat_stage_res() -> void:
-	if StageManager.Instance.selected_combat_res.enemy_slots > 6:
+	if StageManager.selected_combat_res == null:
+		print("Empty combat stage on StageManager")
+		return
+	if StageManager.selected_combat_res.enemy_slots > 6:
 		print("Invalid number of enemy slots")
+		return
 
 	test_selected_stage = (
-		StageManager.Instance.selected_combat_res.stage_prefab.instantiate()
+		StageManager.selected_combat_res.stage_prefab.instantiate()
 		as CombatStage
 	)
 
-	test_selected_stage.initialize(StageManager.Instance.selected_combat_res)
+	test_selected_stage.initialize(StageManager.selected_combat_res)
 
 
 func set_party_positions() -> void:
-	var party_list = UnitManager.Instance.get_party_list()
+	var party_list = UnitManager.get_party_list()
 	if party_list == null:
 		print("Party list is null")
 		return
@@ -135,7 +139,7 @@ func spawn_character(unit: PartyUnit, slot: PartySlot) -> void:
 func set_enemy_positions() -> void:
 	print("SetEnemy called")
 
-	var enemy_list = UnitManager.Instance.get_enemy_list()
+	var enemy_list = UnitManager.get_enemy_list()
 	if enemy_list == null:
 		print("Enemy list is null")
 		return

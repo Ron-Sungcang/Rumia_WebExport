@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://b7nxxxw076fyq"]
+[gd_scene load_steps=2 format=3 uid="uid://b7nxxxw076fyq"]
 
-[node name="CombatScene" type="Node2D"]
+[ext_resource type="Script" uid="uid://dhwscromau4p0" path="res://Src/Manager/Combat/CombatManager.gd" id="1_2mqg5"]
+
+[node name="CombatScene" type="Node2D" node_paths=PackedStringArray("end_turn_button")]
+script = ExtResource("1_2mqg5")
+end_turn_button = NodePath("Control/SampleButton")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SampleButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 897.0
+offset_top = 96.0
+offset_right = 996.0
+offset_bottom = 129.0
+text = "END TURN"
