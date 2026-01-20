@@ -8,7 +8,7 @@ extends Node
 @export var overworld_stages: Array[StageOverWorld] = []
 
 func _ready() -> void:
-	print("Stage manager start")
+	print("Stage manager start, with combat res: ", selected_combat_res)
 
 
 func _process(delta: float) -> void:

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CombatStageRes" load_steps=6 format=3 uid="uid://5bqkngrp66oo"]
+
+[ext_resource type="Texture2D" uid="uid://b72kgwc78euwq" path="res://Assets/Images/Screenshot 2025-11-06 192018.png" id="1_2r8h8"]
+[ext_resource type="Script" uid="uid://cglq4qh5e10t" path="res://Src/Units/EnemyUnits/EnemyRes.gd" id="1_g1el8"]
+[ext_resource type="Texture2D" uid="uid://bq0dxes4h8fns" path="res://Assets/Images/Screenshot 2024-01-15 115423.png" id="2_6kekx"]
+[ext_resource type="Script" uid="uid://2bq5btfl5lgk" path="res://Src/Stage/CombatStage/CombatStageRes.gd" id="2_86ub2"]
+[ext_resource type="PackedScene" uid="uid://ccm0nrmod5yop" path="res://Entities/Stages/TestStage/TestCombatStageScene.tscn" id="5_6kekx"]
+
+[resource]
+script = ExtResource("2_86ub2")
+total_enemies = 6
+enemy_slots = 4
+combat_bg = ExtResource("2_6kekx")
+stage_name = "TestCS"
+stage_prefab = ExtResource("5_6kekx")
+background = ExtResource("1_2r8h8")

@@ -4,6 +4,8 @@ class_name CombatManager
 @export var test_packed: PackedScene # testing only
 @export var ui: Control
 @export var end_turn_button: Button
+@export var background: Sprite2D
+@export var combat_bg: Sprite2D
 
 @export var player_slots: Array[PartySlot]
 @export var enemy_slots: Array[EnemySlot]
@@ -81,7 +83,7 @@ func start_combat() -> void:
 
 	clear_enemy_slots()
 	clear_player_slots()
-
+	
 	load_combat_stage_res()
 
 	set_process(true)
@@ -103,10 +105,14 @@ func load_combat_stage_res() -> void:
 	if StageManager.selected_combat_res == null:
 		print("Empty combat stage on StageManager")
 		return
+	
+	set_background(StageManager.selected_combat_res.background)
+	set_combat_bg(StageManager.selected_combat_res.combat_bg)
+	
 	if StageManager.selected_combat_res.enemy_slots > 6:
 		print("Invalid number of enemy slots")
 		return
-
+	
 	test_selected_stage = (
 		StageManager.selected_combat_res.stage_prefab.instantiate()
 		as CombatStage
@@ -177,3 +183,15 @@ func clear_player_slots() -> void:
 func end_turn_pressed() -> void:
 	end_turn_button.disabled = true
 	set_state(CombatState.END_TURN)
+
+func set_background(bg: Texture2D) -> void:
+	if(bg == null):
+		print("Empty background")
+		return
+	background.texture = bg 
+
+func set_combat_bg(bg: Texture2D) -> void:
+	if(bg == null):
+		print("Empty combat bg")
+		return
+	combat_bg.texture = bg

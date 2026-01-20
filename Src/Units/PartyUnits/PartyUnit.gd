@@ -20,6 +20,8 @@ func _process(delta: float) -> void:
 func initialize(party_res: PartyRes) -> void:
 	unit_name = party_res.unit_name
 	max_hp = party_res.max_hp
+	
+	set_sprite(party_res.unit_image)
 
 
 func _on_area_input_event(

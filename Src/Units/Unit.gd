@@ -15,6 +15,7 @@ var max_hp: int
 @export var is_alive: bool = false
 @export var position_slot: int
 @export var in_combat: bool = false
+@export var unit_image: Sprite2D
 
 
 # Property equivalent to C# CurrentHP
@@ -44,3 +45,10 @@ func take_damage(damage: int) -> void:
 	if curr_hp <= 0:
 		is_alive = false
 		# Destroy / queue_free()
+
+func set_sprite(sprite: Texture2D) -> void:
+	if(sprite == null):
+		print("Party unit sprite is empty")
+		return
+	
+	unit_image.texture = sprite

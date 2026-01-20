@@ -1,17 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7nxxxw076fyq"]
+[gd_scene load_steps=5 format=3 uid="uid://b7nxxxw076fyq"]
 
 [ext_resource type="Script" uid="uid://dhwscromau4p0" path="res://Src/Manager/Combat/CombatManager.gd" id="1_2mqg5"]
 [ext_resource type="Script" uid="uid://ca8cj6ue6mjo0" path="res://Src/Stage/CombatSlots/PartySlot.gd" id="2_dqj0d"]
+[ext_resource type="Texture2D" uid="uid://ugbddvk23vso" path="res://icon.svg" id="2_eel7g"]
 [ext_resource type="Script" uid="uid://cbsq6cdoq8g8k" path="res://Src/Stage/CombatSlots/EnemySlot.gd" id="3_sygbj"]
 
-[node name="CombatScene" type="Node2D" node_paths=PackedStringArray("ui", "end_turn_button", "player_slots", "enemy_slots")]
+[node name="CombatScene" type="Node2D" node_paths=PackedStringArray("ui", "end_turn_button", "background", "combat_bg", "player_slots", "enemy_slots")]
 script = ExtResource("1_2mqg5")
 ui = NodePath("Control")
 end_turn_button = NodePath("Control/SampleButton")
+background = NodePath("Background")
+combat_bg = NodePath("CombatStage/CombatBG")
 player_slots = [NodePath("CombatStage/PartyPositions/1PartySlot"), NodePath("CombatStage/PartyPositions/2PartySlot"), NodePath("CombatStage/PartyPositions/3PartySlot"), NodePath("CombatStage/PartyPositions/4PartySlot")]
 enemy_slots = [NodePath("CombatStage/EnemyPositions/1EnemySlot"), NodePath("CombatStage/EnemyPositions/2EnemySlot"), NodePath("CombatStage/EnemyPositions/3EnemySlot"), NodePath("CombatStage/EnemyPositions/4EnemySlot"), NodePath("CombatStage/EnemyPositions/5EnemySlot"), NodePath("CombatStage/EnemyPositions/6EnemySlot")]
 
 [node name="Control" type="Control" parent="."]
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -26,12 +30,19 @@ offset_bottom = 129.0
 text = "END TURN"
 
 [node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(9, 5)
+texture = ExtResource("2_eel7g")
 
 [node name="CombatStage" type="Node2D" parent="."]
 
 [node name="CombatBG" type="Sprite2D" parent="CombatStage"]
+position = Vector2(576, 486)
+scale = Vector2(9, 3)
+texture = ExtResource("2_eel7g")
 
 [node name="PartyPositions" type="Node2D" parent="CombatStage"]
+z_index = 1
 position = Vector2(250, 450)
 
 [node name="1PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]

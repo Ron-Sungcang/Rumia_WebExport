@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EnemyRes" load_steps=2 format=3 uid="uid://6rbn56fnf6jw"]
+
+[ext_resource type="Script" uid="uid://cglq4qh5e10t" path="res://Src/Units/EnemyUnits/EnemyRes.gd" id="1_howv0"]
+
+[resource]
+script = ExtResource("1_howv0")
+unit_name = "TestEnemy"
+max_hp = 4

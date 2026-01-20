@@ -2,6 +2,7 @@ extends Unit
 class_name EnemyUnit
 
 @export var area_2d: Area2D
+
 var unit_played: bool = false
 
 var UnitPlayed: bool:
@@ -28,6 +29,8 @@ func _process(delta: float) -> void:
 func initialize(enemy_res: EnemyRes) -> void:
 	unit_name = enemy_res.unit_name
 	max_hp = enemy_res.max_hp
+	
+	set_sprite(enemy_res.unit_image)
 
 
 func _on_area_input_event(
