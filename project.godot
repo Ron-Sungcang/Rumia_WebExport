@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Src/Manager/GameManager.gd"
-StageManager="*res://Src/Manager/StageManager.gd"
+StageManager="*res://Src/Manager/Nodes/StageManagerScene.tscn"
 UnitManager="*res://Src/Manager/UnitManager.gd"
 CursorManager="*res://Src/Manager/CursorManager.gd"
 

@@ -23,10 +23,10 @@ offset_bottom = 40.0
 
 [node name="SampleButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 897.0
-offset_top = 96.0
-offset_right = 996.0
-offset_bottom = 129.0
+offset_left = 778.0
+offset_top = 279.0
+offset_right = 877.0
+offset_bottom = 312.0
 text = "END TURN"
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -35,15 +35,15 @@ scale = Vector2(9, 5)
 texture = ExtResource("2_eel7g")
 
 [node name="CombatStage" type="Node2D" parent="."]
+position = Vector2(576, 486)
 
 [node name="CombatBG" type="Sprite2D" parent="CombatStage"]
-position = Vector2(576, 486)
 scale = Vector2(9, 3)
 texture = ExtResource("2_eel7g")
 
 [node name="PartyPositions" type="Node2D" parent="CombatStage"]
 z_index = 1
-position = Vector2(250, 450)
+position = Vector2(-300, -8)
 
 [node name="1PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]
 position = Vector2(100, -60)
@@ -66,7 +66,7 @@ script = ExtResource("2_dqj0d")
 slot_number = 4
 
 [node name="EnemyPositions" type="Node2D" parent="CombatStage"]
-position = Vector2(917, 450)
+position = Vector2(300, -18)
 
 [node name="1EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
 position = Vector2(-100, -60)
