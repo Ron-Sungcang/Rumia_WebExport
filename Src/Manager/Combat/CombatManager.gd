@@ -4,7 +4,7 @@ class_name CombatManager
 @export var test_packed: PackedScene # testing only
 @export var ui: Control
 @export var end_turn_button: Button
-@export var background: Sprite2D
+@export var background: TextureRect
 @export var combat_bg: Sprite2D
 
 @export var player_slots: Array[PartySlot]

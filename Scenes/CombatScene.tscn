@@ -22,17 +22,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="SampleButton" type="Button" parent="Control"]
+z_index = 1
 layout_mode = 0
 offset_left = 778.0
 offset_top = 279.0
 offset_right = 877.0
 offset_bottom = 312.0
 text = "END TURN"
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(9, 5)
-texture = ExtResource("2_eel7g")
 
 [node name="CombatStage" type="Node2D" parent="."]
 position = Vector2(576, 486)
@@ -97,3 +93,10 @@ slot_number = 5
 position = Vector2(0, 60)
 script = ExtResource("3_sygbj")
 slot_number = 6
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -32.0
+offset_right = 1184.0
+offset_bottom = 688.0
+expand_mode = 1
