@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7nxxxw076fyq"]
+[gd_scene load_steps=4 format=3 uid="uid://b7nxxxw076fyq"]
 
 [ext_resource type="Script" uid="uid://dhwscromau4p0" path="res://Src/Manager/Combat/CombatManager.gd" id="1_2mqg5"]
+[ext_resource type="Script" uid="uid://ca8cj6ue6mjo0" path="res://Src/Stage/CombatSlots/PartySlot.gd" id="2_dqj0d"]
+[ext_resource type="Script" uid="uid://cbsq6cdoq8g8k" path="res://Src/Stage/CombatSlots/EnemySlot.gd" id="3_sygbj"]
 
-[node name="CombatScene" type="Node2D" node_paths=PackedStringArray("end_turn_button")]
+[node name="CombatScene" type="Node2D" node_paths=PackedStringArray("ui", "end_turn_button", "player_slots", "enemy_slots")]
 script = ExtResource("1_2mqg5")
+ui = NodePath("Control")
 end_turn_button = NodePath("Control/SampleButton")
+player_slots = [NodePath("CombatStage/PartyPositions/1PartySlot"), NodePath("CombatStage/PartyPositions/2PartySlot"), NodePath("CombatStage/PartyPositions/3PartySlot"), NodePath("CombatStage/PartyPositions/4PartySlot")]
+enemy_slots = [NodePath("CombatStage/EnemyPositions/1EnemySlot"), NodePath("CombatStage/EnemyPositions/2EnemySlot"), NodePath("CombatStage/EnemyPositions/3EnemySlot"), NodePath("CombatStage/EnemyPositions/4EnemySlot"), NodePath("CombatStage/EnemyPositions/5EnemySlot"), NodePath("CombatStage/EnemyPositions/6EnemySlot")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -27,37 +32,57 @@ text = "END TURN"
 [node name="CombatBG" type="Sprite2D" parent="CombatStage"]
 
 [node name="PartyPositions" type="Node2D" parent="CombatStage"]
-position = Vector2(200, 337)
+position = Vector2(250, 450)
 
 [node name="1PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]
-position = Vector2(49, -29)
+position = Vector2(100, -60)
+script = ExtResource("2_dqj0d")
+slot_number = 1
 
 [node name="2PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]
-position = Vector2(41, 33)
+position = Vector2(100, 60)
+script = ExtResource("2_dqj0d")
+slot_number = 2
 
 [node name="3PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]
-position = Vector2(-47, -28)
+position = Vector2(-100, -60)
+script = ExtResource("2_dqj0d")
+slot_number = 3
 
 [node name="4PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]
-position = Vector2(-47, 32)
+position = Vector2(-100, 60)
+script = ExtResource("2_dqj0d")
+slot_number = 4
 
 [node name="EnemyPositions" type="Node2D" parent="CombatStage"]
-position = Vector2(896, 354)
+position = Vector2(917, 450)
 
 [node name="1EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
-position = Vector2(-91, -50)
+position = Vector2(-100, -60)
+script = ExtResource("3_sygbj")
+slot_number = 1
 
 [node name="2EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
-position = Vector2(-85, 46)
+position = Vector2(-100, 60)
+script = ExtResource("3_sygbj")
+slot_number = 2
 
 [node name="3EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
-position = Vector2(-2, -54)
+position = Vector2(100, -60)
+script = ExtResource("3_sygbj")
+slot_number = 3
 
 [node name="4EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
-position = Vector2(4, 52)
+position = Vector2(100, 60)
+script = ExtResource("3_sygbj")
+slot_number = 4
 
 [node name="5EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
-position = Vector2(84, -55)
+position = Vector2(0, -60)
+script = ExtResource("3_sygbj")
+slot_number = 5
 
 [node name="6EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
-position = Vector2(84, 48)
+position = Vector2(0, 60)
+script = ExtResource("3_sygbj")
+slot_number = 6
