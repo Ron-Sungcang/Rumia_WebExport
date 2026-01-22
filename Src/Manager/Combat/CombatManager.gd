@@ -135,6 +135,7 @@ func set_party_positions() -> void:
 		if party_list[i].is_alive and not player_slots[curr_slot - 1].slot_taken:
 			party_list[i].position_slot = curr_slot
 			spawn_character(party_list[i], player_slots[curr_slot - 1])
+			print("Successfully added party unit on index ", curr_slot - 1)
 			curr_slot += 1
 
 

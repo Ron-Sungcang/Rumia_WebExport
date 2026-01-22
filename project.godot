@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Src/Manager/GameManager.gd"
 StageManager="*res://Src/Manager/Nodes/StageManagerScene.tscn"
-UnitManager="*res://Src/Manager/UnitManager.gd"
+UnitManager="*res://Src/Manager/Nodes/UnitManager.tscn"
 CursorManager="*res://Src/Manager/CursorManager.gd"
 
 [dotnet]

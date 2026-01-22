@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://boumha8bwngh6"]
+
+[ext_resource type="Script" uid="uid://baunmvihhg2h1" path="res://Src/Units/PartyUnits/PartyUnit.gd" id="1_n5wtn"]
+[ext_resource type="Texture2D" uid="uid://ugbddvk23vso" path="res://icon.svg" id="2_huwle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5wtn"]
+
+[node name="TestPlayer" type="Node2D" node_paths=PackedStringArray("area_2d", "unit_image")]
+script = ExtResource("1_n5wtn")
+area_2d = NodePath("Area2D")
+is_alive = true
+unit_image = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_huwle")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_n5wtn")
