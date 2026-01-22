@@ -7,8 +7,8 @@
 
 [node name="CombatScene" type="Node2D" node_paths=PackedStringArray("ui", "end_turn_button", "background", "combat_bg", "player_slots", "enemy_slots")]
 script = ExtResource("1_2mqg5")
-ui = NodePath("Control")
-end_turn_button = NodePath("Control/SampleButton")
+ui = NodePath("CombatUI")
+end_turn_button = NodePath("CombatUI/SampleButton")
 background = NodePath("Background")
 combat_bg = NodePath("CombatStage/CombatBG")
 player_slots = [NodePath("PartyPositions/1PartySlot"), NodePath("PartyPositions/2PartySlot"), NodePath("PartyPositions/3PartySlot"), NodePath("PartyPositions/4PartySlot")]
@@ -20,16 +20,17 @@ z_index = -1
 offset_left = -32.0
 offset_right = 1184.0
 offset_bottom = 688.0
+mouse_filter = 2
 expand_mode = 1
 
-[node name="Control" type="Control" parent="."]
-z_index = 2
+[node name="CombatUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 
-[node name="SampleButton" type="Button" parent="Control"]
+[node name="SampleButton" type="Button" parent="CombatUI"]
 z_index = 1
 layout_mode = 0
 offset_left = 778.0

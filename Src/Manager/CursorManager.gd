@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 # Currently active UI control that owns the cursor
 var current_ui: Control
@@ -13,13 +13,14 @@ func _process(delta: float) -> void:
 func pointer_cursor() -> void:
 	if current_ui == null:
 		return
-	
-	# Godot 4 cursor constant
-	current_ui.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		
+	#current_ui.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 
 func default_cursor() -> void:
 	if current_ui == null:
 		return
 	
-	current_ui.mouse_default_cursor_shape = Control.CURSOR_ARROW
+	#current_ui.mouse_default_cursor_shape = Control.CURSOR_ARROW
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
