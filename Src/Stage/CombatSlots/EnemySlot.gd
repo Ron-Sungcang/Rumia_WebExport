@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name EnemySlot
 
 @export var slot_number: int
@@ -24,12 +24,14 @@ func add_enemy_scene(new_scene: EnemyUnit) -> void:
 		return
 
 	unit_scene = new_scene
-	add_child(unit_scene)
+	#add_child(unit_scene)  FOR C#
+	unit_scene.reparent(self,false)
 
 	unit_scene.in_combat = true
 	slot_taken = true
 
-	print("Successfully added Enemy unit:", unit_scene, "to slot:", slot_number)
+	print("Successfully added Enemy unit:", unit_scene, "to slot:", slot_number, " at pos: ",unit_scene.position)
+	print("Slot pos: ", position)
 
 
 func clear_scene() -> void:

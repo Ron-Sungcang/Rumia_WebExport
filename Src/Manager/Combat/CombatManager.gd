@@ -85,6 +85,8 @@ func start_combat() -> void:
 	clear_player_slots()
 	
 	load_combat_stage_res()
+	set_party_positions()
+	set_enemy_positions()
 
 	set_process(true)
 
@@ -93,9 +95,6 @@ func start_combat() -> void:
 
 	end_turn_button.disabled = true
 	end_turn_button.visible = false
-
-	set_party_positions()
-	set_enemy_positions()
 
 	emit_signal("start_combat_signal")
 	start_transition(CombatState.START_TURN)
@@ -135,7 +134,6 @@ func set_party_positions() -> void:
 		if party_list[i].is_alive and not player_slots[curr_slot - 1].slot_taken:
 			party_list[i].position_slot = curr_slot
 			spawn_character(party_list[i], player_slots[curr_slot - 1])
-			print("Successfully added party unit on index ", curr_slot - 1)
 			curr_slot += 1
 
 

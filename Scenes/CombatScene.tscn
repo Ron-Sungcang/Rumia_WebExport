@@ -11,8 +11,16 @@ ui = NodePath("Control")
 end_turn_button = NodePath("Control/SampleButton")
 background = NodePath("Background")
 combat_bg = NodePath("CombatStage/CombatBG")
-player_slots = [NodePath("CombatStage/PartyPositions/1PartySlot"), NodePath("CombatStage/PartyPositions/2PartySlot"), NodePath("CombatStage/PartyPositions/3PartySlot"), NodePath("CombatStage/PartyPositions/4PartySlot")]
-enemy_slots = [NodePath("CombatStage/EnemyPositions/1EnemySlot"), NodePath("CombatStage/EnemyPositions/2EnemySlot"), NodePath("CombatStage/EnemyPositions/3EnemySlot"), NodePath("CombatStage/EnemyPositions/4EnemySlot"), NodePath("CombatStage/EnemyPositions/5EnemySlot"), NodePath("CombatStage/EnemyPositions/6EnemySlot")]
+player_slots = [NodePath("PartyPositions/1PartySlot"), NodePath("PartyPositions/2PartySlot"), NodePath("PartyPositions/3PartySlot"), NodePath("PartyPositions/4PartySlot")]
+enemy_slots = [NodePath("EnemyPositions/1EnemySlot"), NodePath("EnemyPositions/2EnemySlot"), NodePath("EnemyPositions/3EnemySlot"), NodePath("EnemyPositions/4EnemySlot"), NodePath("EnemyPositions/5EnemySlot"), NodePath("EnemyPositions/6EnemySlot")]
+
+[node name="Background" type="TextureRect" parent="."]
+show_behind_parent = true
+z_index = -1
+offset_left = -32.0
+offset_right = 1184.0
+offset_bottom = 688.0
+expand_mode = 1
 
 [node name="Control" type="Control" parent="."]
 z_index = 2
@@ -28,6 +36,7 @@ offset_left = 778.0
 offset_top = 279.0
 offset_right = 877.0
 offset_bottom = 312.0
+action_mode = 0
 text = "END TURN"
 
 [node name="CombatStage" type="Node2D" parent="."]
@@ -37,66 +46,59 @@ position = Vector2(576, 486)
 scale = Vector2(9, 3)
 texture = ExtResource("2_eel7g")
 
-[node name="PartyPositions" type="Node2D" parent="CombatStage"]
+[node name="PartyPositions" type="Node2D" parent="."]
 z_index = 1
-position = Vector2(-300, -8)
+position = Vector2(276, 478)
 
-[node name="1PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]
+[node name="1PartySlot" type="Node2D" parent="PartyPositions"]
 position = Vector2(100, -60)
 script = ExtResource("2_dqj0d")
 slot_number = 1
 
-[node name="2PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]
+[node name="2PartySlot" type="Node2D" parent="PartyPositions"]
 position = Vector2(100, 60)
 script = ExtResource("2_dqj0d")
 slot_number = 2
 
-[node name="3PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]
+[node name="3PartySlot" type="Node2D" parent="PartyPositions"]
 position = Vector2(-100, -60)
 script = ExtResource("2_dqj0d")
 slot_number = 3
 
-[node name="4PartySlot" type="Node2D" parent="CombatStage/PartyPositions"]
+[node name="4PartySlot" type="Node2D" parent="PartyPositions"]
 position = Vector2(-100, 60)
 script = ExtResource("2_dqj0d")
 slot_number = 4
 
-[node name="EnemyPositions" type="Node2D" parent="CombatStage"]
-position = Vector2(300, -18)
+[node name="EnemyPositions" type="Node2D" parent="."]
+position = Vector2(876, 468)
 
-[node name="1EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
+[node name="1EnemySlot" type="Node2D" parent="EnemyPositions"]
 position = Vector2(-100, -60)
 script = ExtResource("3_sygbj")
 slot_number = 1
 
-[node name="2EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
+[node name="2EnemySlot" type="Node2D" parent="EnemyPositions"]
 position = Vector2(-100, 60)
 script = ExtResource("3_sygbj")
 slot_number = 2
 
-[node name="3EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
+[node name="3EnemySlot" type="Node2D" parent="EnemyPositions"]
 position = Vector2(100, -60)
 script = ExtResource("3_sygbj")
 slot_number = 3
 
-[node name="4EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
+[node name="4EnemySlot" type="Node2D" parent="EnemyPositions"]
 position = Vector2(100, 60)
 script = ExtResource("3_sygbj")
 slot_number = 4
 
-[node name="5EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
+[node name="5EnemySlot" type="Node2D" parent="EnemyPositions"]
 position = Vector2(0, -60)
 script = ExtResource("3_sygbj")
 slot_number = 5
 
-[node name="6EnemySlot" type="Node2D" parent="CombatStage/EnemyPositions"]
+[node name="6EnemySlot" type="Node2D" parent="EnemyPositions"]
 position = Vector2(0, 60)
 script = ExtResource("3_sygbj")
 slot_number = 6
-
-[node name="Background" type="TextureRect" parent="."]
-z_index = -1
-offset_left = -32.0
-offset_right = 1184.0
-offset_bottom = 688.0
-expand_mode = 1

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name PartySlot
 
 @export var slot_number: int
@@ -24,12 +24,14 @@ func add_party_scene(new_scene: PartyUnit) -> void:
 		return
 
 	unit_scene = new_scene
-	add_child(unit_scene)
+	#add_child(unit_scene)
+	unit_scene.reparent(self, false)
 
 	unit_scene.in_combat = true
 	slot_taken = true
 
-	print("Successfully added Party unit:", unit_scene, "to slot:", slot_number)
+	print("Successfully added Party unit:", unit_scene, "to slot:", slot_number, " at pos: ", unit_scene.position)
+	print("Party slot pos: ", position)
 
 
 func clear_scene() -> void:
