@@ -1,8 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtyut41y1kvxk"]
+[gd_scene load_steps=4 format=3 uid="uid://dun6s8ptbnlwe"]
 
-[ext_resource type="Script" uid="uid://dasibei3heavn" path="res://Src/Manager/UnitManager.cs" id="1_dj2hv"]
-[ext_resource type="Resource" uid="uid://duborm3voh33y" path="res://Entities/Characters/Resource/TestParty.tres" id="2_14b0w"]
+[ext_resource type="Script" uid="uid://dhpjc0yfyg24p" path="res://Src/Manager/UnitManager.gd" id="1_dj2hv"]
+[ext_resource type="Script" uid="uid://broqki7r00wg5" path="res://Src/Units/PartyUnits/PartyRes.gd" id="2_k02ep"]
+[ext_resource type="Resource" uid="uid://bsluml7cuveea" path="res://Entities/Characters/TestPartyUnit/TestPlayerRes.tres" id="3_nrrwc"]
 
 [node name="UnitManager" type="Node2D"]
 script = ExtResource("1_dj2hv")
-partyRes = Array[Object]([ExtResource("2_14b0w")])
+party_res = Array[ExtResource("2_k02ep")]([ExtResource("3_nrrwc"), ExtResource("3_nrrwc"), ExtResource("3_nrrwc"), ExtResource("3_nrrwc")])
