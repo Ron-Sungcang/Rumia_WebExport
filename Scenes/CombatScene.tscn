@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7nxxxw076fyq"]
+[gd_scene load_steps=6 format=3 uid="uid://b7nxxxw076fyq"]
 
 [ext_resource type="Script" uid="uid://dhwscromau4p0" path="res://Src/Manager/Combat/CombatManager.gd" id="1_2mqg5"]
 [ext_resource type="Script" uid="uid://ca8cj6ue6mjo0" path="res://Src/Stage/CombatSlots/PartySlot.gd" id="2_dqj0d"]
 [ext_resource type="Texture2D" uid="uid://ugbddvk23vso" path="res://icon.svg" id="2_eel7g"]
+[ext_resource type="Texture2D" uid="uid://byle0eu63ggtv" path="res://Assets/Images/TestBG/CombatBGOutline.png" id="2_memue"]
 [ext_resource type="Script" uid="uid://cbsq6cdoq8g8k" path="res://Src/Stage/CombatSlots/EnemySlot.gd" id="3_sygbj"]
 
 [node name="CombatScene" type="Node2D" node_paths=PackedStringArray("ui", "end_turn_button", "background", "combat_bg", "player_slots", "enemy_slots")]
@@ -17,10 +18,10 @@ enemy_slots = [NodePath("EnemyPositions/1EnemySlot"), NodePath("EnemyPositions/2
 [node name="Background" type="TextureRect" parent="."]
 show_behind_parent = true
 z_index = -1
-offset_left = -32.0
-offset_right = 1184.0
-offset_bottom = 688.0
+offset_right = 1152.0
+offset_bottom = 648.0
 mouse_filter = 2
+texture = ExtResource("2_memue")
 expand_mode = 1
 
 [node name="CombatUI" type="Control" parent="."]
@@ -41,10 +42,9 @@ action_mode = 0
 text = "END TURN"
 
 [node name="CombatStage" type="Node2D" parent="."]
-position = Vector2(576, 486)
+position = Vector2(576, 500)
 
 [node name="CombatBG" type="Sprite2D" parent="CombatStage"]
-scale = Vector2(9, 3)
 texture = ExtResource("2_eel7g")
 
 [node name="PartyPositions" type="Node2D" parent="."]
