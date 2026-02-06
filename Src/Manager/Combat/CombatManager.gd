@@ -5,7 +5,7 @@ class_name CombatManager
 @export var ui: Control
 @export var end_turn_button: Button
 @export var background: TextureRect
-@export var combat_bg: Sprite2D
+@export var combat_bg: TextureRect
 
 @export var player_slots: Array[PartySlot]
 @export var enemy_slots: Array[EnemySlot]

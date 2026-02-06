@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dhwscromau4p0" path="res://Src/Manager/Combat/CombatManager.gd" id="1_2mqg5"]
 [ext_resource type="Script" uid="uid://ca8cj6ue6mjo0" path="res://Src/Stage/CombatSlots/PartySlot.gd" id="2_dqj0d"]
 [ext_resource type="Texture2D" uid="uid://ugbddvk23vso" path="res://icon.svg" id="2_eel7g"]
-[ext_resource type="Texture2D" uid="uid://byle0eu63ggtv" path="res://Assets/Images/TestBG/CombatBGOutline.png" id="2_memue"]
+[ext_resource type="Texture2D" uid="uid://dnbrf73cha0ha" path="res://Assets/Images/TestBG/CombatBGOutline.png" id="2_memue"]
 [ext_resource type="Script" uid="uid://cbsq6cdoq8g8k" path="res://Src/Stage/CombatSlots/EnemySlot.gd" id="3_sygbj"]
 
 [node name="CombatScene" type="Node2D" node_paths=PackedStringArray("ui", "end_turn_button", "background", "combat_bg", "player_slots", "enemy_slots")]

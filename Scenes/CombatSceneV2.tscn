@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://cua280fkkdtvp"]
+
+[ext_resource type="Script" uid="uid://dhwscromau4p0" path="res://Src/Manager/Combat/CombatManager.gd" id="1_m158t"]
+[ext_resource type="Texture2D" uid="uid://dnbrf73cha0ha" path="res://Assets/Images/TestBG/CombatBGOutline.png" id="1_tsjpf"]
+
+[node name="CombatSceneV2" type="Control" node_paths=PackedStringArray("ui", "end_turn_button", "background", "combat_bg")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m158t")
+ui = NodePath("CanvasLayer/CombatControl")
+end_turn_button = NodePath("CanvasLayer/CombatControl/DashboardUI/TestButton")
+background = NodePath("Background")
+combat_bg = NodePath("CanvasLayer/CombatControl/CombatBG")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tsjpf")
+expand_mode = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CombatControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/CombatControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DashboardUI" type="PanelContainer" parent="CanvasLayer/CombatControl"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TestButton" type="Button" parent="CanvasLayer/CombatControl/DashboardUI"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "End Turn"
+
+[node name="CombatBG" type="TextureRect" parent="CanvasLayer/CombatControl"]
+z_index = -1
+layout_mode = 0
+offset_top = 379.0
+offset_right = 1155.0
+offset_bottom = 644.0
+expand_mode = 3
+
+[node name="PartyPosition" type="PanelContainer" parent="CanvasLayer/CombatControl"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="PPLayer1" type="HBoxContainer" parent="CanvasLayer/CombatControl/PartyPosition"]
+layout_mode = 2
+
+[node name="EnemyPosition" type="PanelContainer" parent="CanvasLayer/CombatControl"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="EPLayer1" type="HBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition"]
+layout_mode = 2
