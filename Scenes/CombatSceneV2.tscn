@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dnbrf73cha0ha" path="res://Assets/Images/TestBG/CombatBGOutline.png" id="1_tsjpf"]
 
 [node name="CombatSceneV2" type="Control" node_paths=PackedStringArray("ui", "end_turn_button", "background", "combat_bg")]
+custom_minimum_size = Vector2(960, 540)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_tsjpf")
 expand_mode = 3
 
@@ -42,6 +44,15 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="CombatBG" type="TextureRect" parent="CanvasLayer/CombatControl"]
+z_index = -1
+layout_mode = 0
+offset_top = 379.0
+offset_right = 1155.0
+offset_bottom = 644.0
+mouse_filter = 2
+expand_mode = 3
+
 [node name="DashboardUI" type="PanelContainer" parent="CanvasLayer/CombatControl"]
 z_index = 2
 layout_mode = 1
@@ -58,41 +69,101 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "End Turn"
 
-[node name="CombatBG" type="TextureRect" parent="CanvasLayer/CombatControl"]
-z_index = -1
-layout_mode = 0
-offset_top = 379.0
-offset_right = 1155.0
-offset_bottom = 644.0
-expand_mode = 3
-
 [node name="PartyPosition" type="PanelContainer" parent="CanvasLayer/CombatControl"]
-z_index = 1
+z_index = -2
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
+anchors_preset = -1
+anchor_top = 0.59
+anchor_right = 0.465
+anchor_bottom = 0.94
 offset_right = 40.0
-offset_bottom = 20.0
-grow_vertical = 2
+offset_bottom = 40.0
+mouse_filter = 2
 
-[node name="PPLayer1" type="HBoxContainer" parent="CanvasLayer/CombatControl/PartyPosition"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CombatControl/PartyPosition"]
 layout_mode = 2
+
+[node name="PPLayer1" type="HBoxContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="2PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="1PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="PPLayer2" type="HBoxContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="4PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="3PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="EnemyPosition" type="PanelContainer" parent="CanvasLayer/CombatControl"]
-z_index = 1
+z_index = -2
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -20.0
-offset_bottom = 20.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.59
+anchor_right = 0.965
+anchor_bottom = 0.94
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
 
-[node name="EPLayer1" type="HBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition"]
 layout_mode = 2
+
+[node name="EPLayer1" type="HBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="1EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="2EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="3EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="EPLayer2" type="HBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="4EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="5EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="6EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4

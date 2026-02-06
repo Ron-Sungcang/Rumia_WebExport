@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rumia_Web"
-run/main_scene="uid://b7nxxxw076fyq"
+run/main_scene="uid://cua280fkkdtvp"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name CombatManager
 
 @export var test_packed: PackedScene # testing only
