@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name EnemySlot
 
 @export var slot_number: int

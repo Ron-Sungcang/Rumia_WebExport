@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cua280fkkdtvp"]
+[gd_scene load_steps=5 format=3 uid="uid://cua280fkkdtvp"]
 
 [ext_resource type="Script" uid="uid://dhwscromau4p0" path="res://Src/Manager/Combat/CombatManager.gd" id="1_m158t"]
 [ext_resource type="Texture2D" uid="uid://dnbrf73cha0ha" path="res://Assets/Images/TestBG/CombatBGOutline.png" id="1_tsjpf"]
+[ext_resource type="Script" uid="uid://ca8cj6ue6mjo0" path="res://Src/Stage/CombatSlots/PartySlot.gd" id="3_vmj1g"]
+[ext_resource type="Script" uid="uid://cbsq6cdoq8g8k" path="res://Src/Stage/CombatSlots/EnemySlot.gd" id="4_6j7wa"]
 
-[node name="CombatSceneV2" type="Control" node_paths=PackedStringArray("ui", "end_turn_button", "background", "combat_bg")]
+[node name="CombatSceneV2" type="Control" node_paths=PackedStringArray("ui", "end_turn_button", "background", "combat_bg", "player_slots", "enemy_slots")]
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +18,8 @@ ui = NodePath("CanvasLayer/CombatControl")
 end_turn_button = NodePath("CanvasLayer/CombatControl/DashboardUI/TestButton")
 background = NodePath("Background")
 combat_bg = NodePath("CanvasLayer/CombatControl/CombatBG")
+player_slots = [NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1/1PPosition"), NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1/2PPosition"), NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2/3PPosition"), NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2/4PPosition")]
+enemy_slots = [NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1/1EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1/2EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1/3EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2/4EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2/5EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2/6EPosition")]
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -2
@@ -92,11 +96,15 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("3_vmj1g")
+slot_number = 2
 
 [node name="1PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("3_vmj1g")
+slot_number = 1
 
 [node name="PPLayer2" type="HBoxContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer"]
 custom_minimum_size = Vector2(0, 125)
@@ -107,11 +115,15 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("3_vmj1g")
+slot_number = 4
 
 [node name="3PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("3_vmj1g")
+slot_number = 3
 
 [node name="EnemyPosition" type="PanelContainer" parent="CanvasLayer/CombatControl"]
 z_index = -2
@@ -137,16 +149,22 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("4_6j7wa")
+slot_number = 1
 
 [node name="2EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("4_6j7wa")
+slot_number = 2
 
 [node name="3EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("4_6j7wa")
+slot_number = 3
 
 [node name="EPLayer2" type="HBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer"]
 custom_minimum_size = Vector2(0, 125)
@@ -157,13 +175,19 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("4_6j7wa")
+slot_number = 4
 
 [node name="5EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("4_6j7wa")
+slot_number = 5
 
 [node name="6EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+script = ExtResource("4_6j7wa")
+slot_number = 6

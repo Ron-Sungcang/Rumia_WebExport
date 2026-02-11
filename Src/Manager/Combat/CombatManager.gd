@@ -175,6 +175,9 @@ func clear_enemy_slots() -> void:
 
 
 func clear_player_slots() -> void:
+	if player_slots == null:
+		print("Empty player slot")
+		return
 	for slot in player_slots:
 		slot.clear_scene()
 
