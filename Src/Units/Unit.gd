@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name Unit
 
 """
@@ -15,7 +15,7 @@ var max_hp: int
 @export var is_alive: bool = false
 @export var position_slot: int
 @export var in_combat: bool = false
-@export var unit_image: Sprite2D
+@export var unit_image: TextureRect
 
 
 # Property equivalent to C# CurrentHP

@@ -1,16 +1,18 @@
 extends Unit
+
 class_name PartyUnit
 
-@export var area_2d: Area2D
+#@export var area_2d: Area2D
 
 func _ready() -> void:
-	if area_2d == null:
-		print("PartyUnit, unset collision box")
-		return
-	
-	area_2d.mouse_entered.connect(_on_mouse_entered)
-	area_2d.mouse_exited.connect(_on_mouse_exited)
-	area_2d.input_event.connect(_on_area_input_event)
+	#if area_2d == null:
+		#print("PartyUnit, unset collision box")
+		#return
+	#
+	#area_2d.mouse_entered.connect(_on_mouse_entered)
+	#area_2d.mouse_exited.connect(_on_mouse_exited)
+	#area_2d.input_event.connect(_on_area_input_event)
+	pass
 
 
 func _process(delta: float) -> void:

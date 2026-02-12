@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://rji1s0jeidfj"]
+[gd_scene load_steps=2 format=3 uid="uid://cuq3k770r1t62"]
 
-[ext_resource type="Script" uid="uid://b17ahlyxlqthy" path="res://Src/Units/EnemyUnits/EnemyUnit.gd" id="1_yqh1v"]
+[ext_resource type="Script" uid="uid://baunmvihhg2h1" path="res://Src/Units/PartyUnits/PartyUnit.gd" id="1_2wrrn"]
 
-[node name="TestEnemyV2" type="Control" node_paths=PackedStringArray("unit_image")]
+[node name="TestPlayerV2" type="Control" node_paths=PackedStringArray("unit_image")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yqh1v")
+script = ExtResource("1_2wrrn")
 unit_image = NodePath("TextureRect")
 
 [node name="TextureButton" type="TextureButton" parent="."]

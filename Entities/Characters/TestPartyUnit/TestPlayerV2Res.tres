@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PartyRes" load_steps=4 format=3 uid="uid://dutrumoiygffn"]
+
+[ext_resource type="Script" uid="uid://broqki7r00wg5" path="res://Src/Units/PartyUnits/PartyRes.gd" id="1_g1sp8"]
+[ext_resource type="Texture2D" uid="uid://bq0dxes4h8fns" path="res://Assets/Images/Screenshot 2024-01-15 115423.png" id="2_16of8"]
+[ext_resource type="PackedScene" uid="uid://cuq3k770r1t62" path="res://Entities/Characters/TestPartyUnit/TestPlayerV2.tscn" id="2_yha4r"]
+
+[resource]
+script = ExtResource("1_g1sp8")
+unit_name = "V2 Player"
+unit_prefab = ExtResource("2_yha4r")
+unit_image = ExtResource("2_16of8")

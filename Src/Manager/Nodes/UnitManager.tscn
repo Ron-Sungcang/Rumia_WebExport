@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dhpjc0yfyg24p" path="res://Src/Manager/UnitManager.gd" id="1_dj2hv"]
 [ext_resource type="Script" uid="uid://broqki7r00wg5" path="res://Src/Units/PartyUnits/PartyRes.gd" id="2_k02ep"]
-[ext_resource type="Resource" uid="uid://bsluml7cuveea" path="res://Entities/Characters/TestPartyUnit/TestPlayerRes.tres" id="3_nrrwc"]
+[ext_resource type="Resource" uid="uid://dutrumoiygffn" path="res://Entities/Characters/TestPartyUnit/TestPlayerV2Res.tres" id="3_k02ep"]
 
 [node name="UnitManager" type="Node2D"]
 script = ExtResource("1_dj2hv")
-party_res = Array[ExtResource("2_k02ep")]([ExtResource("3_nrrwc"), ExtResource("3_nrrwc"), ExtResource("3_nrrwc"), ExtResource("3_nrrwc")])
+party_res = Array[ExtResource("2_k02ep")]([ExtResource("3_k02ep"), ExtResource("3_k02ep")])
