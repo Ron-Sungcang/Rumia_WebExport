@@ -38,10 +38,10 @@ func add_to_party_team() -> void:
 		
 		p_unit.initialize(party_res[i])
 		party_units.insert(i, p_unit)
+		p_unit.is_alive = true
 		add_child(p_unit)
 		
 		print("Added to party: ", i + 1)
-
 
 func add_to_enemy_team() -> void:
 	if enemy_res.is_empty():
@@ -54,8 +54,8 @@ func add_to_enemy_team() -> void:
 		
 		e_unit.initialize(enemy_res[i])
 		enemy_units.insert(i, e_unit)
+		e_unit.is_alive = true
 		add_child(e_unit)
-
 
 func get_party_list() -> Array[PartyUnit]:
 	return party_units

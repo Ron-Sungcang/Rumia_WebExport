@@ -118,6 +118,7 @@ func load_combat_stage_res() -> void:
 	)
 
 	test_selected_stage.initialize(StageManager.selected_combat_res)
+	print("Loaded Combat stage res ", test_selected_stage.name)
 
 
 func set_party_positions() -> void:
@@ -138,6 +139,7 @@ func set_party_positions() -> void:
 
 
 func spawn_character(unit: PartyUnit, slot: PartySlot) -> void:
+	#UnitManager.remove_from_party_team(unit)
 	slot.add_party_scene(unit)
 
 
@@ -161,6 +163,7 @@ func set_enemy_positions() -> void:
 
 
 func spawn_enemy(unit: EnemyUnit, slot: EnemySlot) -> void:
+	#UnitManager.remove_from_enemy_team(unit)
 	slot.add_enemy_scene(unit)
 
 

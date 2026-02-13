@@ -24,7 +24,7 @@ func add_enemy_scene(new_scene: EnemyUnit) -> void:
 		return
 
 	unit_scene = new_scene
-	#add_child(unit_scene)  FOR C#
+	#add_child(unit_scene)  
 	unit_scene.reparent(self,false)
 
 	unit_scene.in_combat = true
