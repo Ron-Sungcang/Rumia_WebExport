@@ -2,17 +2,20 @@
 
 [ext_resource type="Script" uid="uid://baunmvihhg2h1" path="res://Src/Units/PartyUnits/PartyUnit.gd" id="1_2wrrn"]
 
-[node name="TestPlayerV2" type="Control" node_paths=PackedStringArray("unit_image")]
+[node name="TestPlayerV2" type="Control" node_paths=PackedStringArray("texture_button", "unit_image")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_2wrrn")
+texture_button = NodePath("TextureButton")
 unit_image = NodePath("TextureRect")
 
 [node name="TextureButton" type="TextureButton" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,3 +37,4 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2

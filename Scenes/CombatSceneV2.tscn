@@ -96,6 +96,7 @@ mouse_filter = 0
 [node name="2PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("3_vmj1g")
 slot_number = 2
 
@@ -147,6 +148,7 @@ mouse_filter = 0
 [node name="1EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("4_6j7wa")
 slot_number = 1
 
