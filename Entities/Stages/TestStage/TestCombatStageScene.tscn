@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccm0nrmod5yop"]
+
+[ext_resource type="Script" uid="uid://bacftv1v4im68" path="res://Src/Stage/CombatStage/CombatStage.gd" id="1_ip2t0"]
+
+[node name="TestCombatStageScene" type="Node2D"]
+script = ExtResource("1_ip2t0")
+remaining_units = 4
+remaining_enemies = 6

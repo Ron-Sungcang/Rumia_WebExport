@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwgyky3j4o1yi"]
+
+[ext_resource type="Script" uid="uid://b17ahlyxlqthy" path="res://Src/Units/EnemyUnits/EnemyUnit.gd" id="1_3yxsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yxsc"]
+
+[node name="TestEnemy" type="Node2D" node_paths=PackedStringArray("area_2d", "unit_image")]
+script = ExtResource("1_3yxsc")
+area_2d = NodePath("Area2D")
+is_alive = true
+unit_image = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_3yxsc")

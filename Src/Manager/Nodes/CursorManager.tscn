@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b82ltjfj744du"]
+[gd_scene load_steps=2 format=3 uid="uid://bwliipmmb8spu"]
 
-[ext_resource type="Script" uid="uid://ctn8ybilx53il" path="res://Src/Manager/CursorManager.cs" id="1_wbw6b"]
+[ext_resource type="Script" uid="uid://di6hn8of3mbhp" path="res://Src/Manager/CursorManager.gd" id="1_wbw6b"]
 
 [node name="CursorManager" type="Node2D"]
 script = ExtResource("1_wbw6b")

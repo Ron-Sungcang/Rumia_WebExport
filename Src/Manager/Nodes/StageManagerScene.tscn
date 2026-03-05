@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://btkfqcdacob7m"]
+
+[ext_resource type="Script" uid="uid://b43xrrtin6r45" path="res://Src/Manager/StageManager.gd" id="1_tj5ri"]
+[ext_resource type="Resource" uid="uid://5bqkngrp66oo" path="res://Entities/Stages/TestStage/TestCombatStage.tres" id="2_mpbkn"]
+
+[node name="StageManagerScene" type="Node2D"]
+script = ExtResource("1_tj5ri")
+selected_combat_res = ExtResource("2_mpbkn")
