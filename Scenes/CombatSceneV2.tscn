@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cua280fkkdtvp"]
 
 [ext_resource type="Script" uid="uid://dhwscromau4p0" path="res://Src/Manager/Combat/CombatManager.gd" id="1_m158t"]
-[ext_resource type="Texture2D" uid="uid://dnbrf73cha0ha" path="res://Assets/Images/TestBG/CombatBGOutline.png" id="1_tsjpf"]
+[ext_resource type="Texture2D" uid="uid://dhiuagv4gvreo" path="res://Assets/Images/TestBG/CombatBGOutline.png" id="1_tsjpf"]
 [ext_resource type="Script" uid="uid://ca8cj6ue6mjo0" path="res://Src/Stage/CombatSlots/PartySlot.gd" id="3_vmj1g"]
 [ext_resource type="Script" uid="uid://cbsq6cdoq8g8k" path="res://Src/Stage/CombatSlots/EnemySlot.gd" id="4_6j7wa"]
 
@@ -51,10 +51,13 @@ offset_bottom = 40.0
 
 [node name="CombatBG" type="TextureRect" parent="CanvasLayer/CombatControl"]
 z_index = -3
-layout_mode = 0
-offset_top = 379.0
-offset_right = 1155.0
-offset_bottom = 644.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.485
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 expand_mode = 3
 
@@ -77,9 +80,9 @@ text = "End Turn"
 [node name="PartyPosition" type="PanelContainer" parent="CanvasLayer/CombatControl"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.59
+anchor_top = 0.488
 anchor_right = 0.465
-anchor_bottom = 0.94
+anchor_bottom = 0.865
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -129,9 +132,9 @@ z_index = -2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.59
+anchor_top = 0.488
 anchor_right = 0.965
-anchor_bottom = 0.94
+anchor_bottom = 0.865
 offset_right = 40.0
 offset_bottom = 40.0
 
