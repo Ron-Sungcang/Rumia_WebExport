@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cygaiu7k1hofe"]
+[gd_scene load_steps=6 format=3 uid="uid://cygaiu7k1hofe"]
 
 [ext_resource type="Theme" uid="uid://c2gm2tvw4mttc" path="res://Entities/Card/card_theme.tres" id="1_dlk08"]
 [ext_resource type="Script" uid="uid://b4xu3at6ujbn2" path="res://Src/Card/Card.gd" id="2_yhfuh"]
+[ext_resource type="Script" uid="uid://b3hlwuxum4rqy" path="res://Src/Card/States/Card_State_Machine.gd" id="3_b2a2i"]
+[ext_resource type="Script" uid="uid://d1mapq8h2jdha" path="res://Src/Card/States/Card_State.gd" id="4_telke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhfuh"]
 size = Vector2(98.375, 150)
@@ -54,8 +56,10 @@ position = Vector2(47.1875, 75)
 shape = SubResource("RectangleShape2D_yhfuh")
 
 [node name="CardStateMachine" type="Node" parent="."]
+script = ExtResource("3_b2a2i")
 
 [node name="Clicked" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_telke")
 
 [node name="Idle" type="Node" parent="CardStateMachine"]
 

@@ -1,5 +1,7 @@
 extends Control
 
+class_name Card
+
 var cardData
 var stateMachine
 
