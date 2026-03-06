@@ -28,15 +28,15 @@ func _on_card_clicked(card: Card):
 	events.emit_signal("CardAimStarted", card)
 	ChangeState(Card_State.State.Clicked)
 
-func _on_card_hovered(card):
+func _on_card_hovered(card: Card):
 	ChangeState(Card_State.State.Hovering)
 
 
-func _on_card_exited(card):
-	change_state(Card_State.State.Exited)
+func _on_card_exit(card: Card):
+	ChangeState(Card_State.State.Exited)
 
 
-func _on_card_idle(card):
+func _on_card_idle(card: Card):
 	ChangeState(Card_State.State.Idle)
 
 func ChangeState(state):
