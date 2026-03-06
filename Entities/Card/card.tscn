@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cygaiu7k1hofe"]
+[gd_scene load_steps=4 format=3 uid="uid://cygaiu7k1hofe"]
 
 [ext_resource type="Theme" uid="uid://c2gm2tvw4mttc" path="res://Entities/Card/card_theme.tres" id="1_dlk08"]
-[ext_resource type="Script" uid="uid://dgf62uku1b6p7" path="res://Src/Card/Card.cs" id="2_yhfuh"]
-[ext_resource type="Script" uid="uid://cy17he1hdbnjn" path="res://Src/Card/States/Card_State_Machine.cs" id="3_rrc88"]
-[ext_resource type="Script" uid="uid://hyr05u6tpobo" path="res://Src/Card/States/Card_State.cs" id="4_b2a2i"]
+[ext_resource type="Script" uid="uid://b4xu3at6ujbn2" path="res://Src/Card/Card.gd" id="2_yhfuh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhfuh"]
 size = Vector2(98.375, 150)
@@ -56,19 +54,11 @@ position = Vector2(47.1875, 75)
 shape = SubResource("RectangleShape2D_yhfuh")
 
 [node name="CardStateMachine" type="Node" parent="."]
-script = ExtResource("3_rrc88")
 
 [node name="Clicked" type="Node" parent="CardStateMachine"]
-script = ExtResource("4_b2a2i")
-currentstate = 2
 
 [node name="Idle" type="Node" parent="CardStateMachine"]
-script = ExtResource("4_b2a2i")
 
 [node name="Hovering" type="Node" parent="CardStateMachine"]
-script = ExtResource("4_b2a2i")
-currentstate = 1
 
 [node name="Exited" type="Node" parent="CardStateMachine"]
-script = ExtResource("4_b2a2i")
-currentstate = 4
