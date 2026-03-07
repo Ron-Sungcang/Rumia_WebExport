@@ -7,12 +7,17 @@ class_name CombatManager
 @export var background: TextureRect
 @export var combat_bg: TextureRect
 
+@export var party_slot_layers: Array[HBoxContainer]
+@export var enemy_slot_layers: Array[HBoxContainer]
+
 @export var player_slots: Array[PartySlot]
 @export var enemy_slots: Array[EnemySlot]
 
+var available_p_slots: int
+var available_e_slots: int
+
 var test_selected_stage: CombatStage = null
 var state: CombatState
-
 
 signal start_draw
 signal start_combat_signal
@@ -85,6 +90,9 @@ func start_combat() -> void:
 	clear_player_slots()
 	
 	load_combat_stage_res()
+	
+	set_combat_slots()
+	
 	set_party_positions()
 	set_enemy_positions()
 
@@ -120,6 +128,50 @@ func load_combat_stage_res() -> void:
 	test_selected_stage.initialize(StageManager.selected_combat_res)
 	print("Loaded Combat stage res ", test_selected_stage.name)
 
+func set_combat_slots() -> void:
+	if UnitManager.party_units.size() <= 2:
+		party_slot_layers[1].visible = false
+		available_p_slots = 2
+	else:
+		party_slot_layers[1].visible = true
+		available_p_slots = 4
+	
+	set_party_slots()
+	
+	if test_selected_stage.resource.enemy_slots <= 3:
+		enemy_slot_layers[1].visible = false
+		available_e_slots = 3
+	else:
+		enemy_slot_layers[1].visible = true
+		available_e_slots = 6
+	
+	set_enemy_slots()
+
+func set_party_slots() -> void:
+	var curr_slot := 1
+	for i in player_slots:
+		if curr_slot <= UnitManager.party_units.size():
+			i.visible = true
+		else:
+			i.visible = false
+		
+		curr_slot += 1
+		if curr_slot > available_p_slots:
+			return
+
+func set_enemy_slots() -> void:
+	var curr_slot := 1
+	print("Enemy slots", test_selected_stage.resource.enemy_slots)
+	for i in enemy_slots:
+		if curr_slot <= test_selected_stage.resource.enemy_slots:
+			i.visible = true
+		else:
+			i.visible = false
+			
+		curr_slot += 1
+		
+		if curr_slot > available_e_slots:
+			return
 
 func set_party_positions() -> void:
 	var party_list = UnitManager.get_party_list()
@@ -153,7 +205,7 @@ func set_enemy_positions() -> void:
 
 	var curr_slot := 1
 	for i in enemy_list.size():
-		if curr_slot > enemy_slots.size():
+		if curr_slot > enemy_slots.size() or curr_slot > test_selected_stage.resource.enemy_slots:
 			break
 
 		if enemy_list[i].is_alive and not enemy_slots[curr_slot - 1].slot_taken:
