@@ -6,7 +6,6 @@ If this manager does too much, we can refactor it later
 and make a separate manager for the party.
 """
 
-# Selected units (global via AutoLoad)
 var selected_party_unit: PartyUnit = null
 var selected_enemy_unit: EnemyUnit = null
 

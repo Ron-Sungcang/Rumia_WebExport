@@ -3,7 +3,7 @@ class_name CombatManager
 
 @export var test_packed: PackedScene # testing only
 @export var ui: Control
-@export var end_turn_button: Button
+@export var dashboard: DashBoard
 @export var background: TextureRect
 @export var combat_bg: TextureRect
 
@@ -31,7 +31,7 @@ enum CombatState {
 }
 
 func _ready() -> void:
-	end_turn_button.pressed.connect(end_turn_pressed)
+	dashboard.get_end_turn_button().pressed.connect(end_turn_pressed)
 
 	if test_packed != null:
 		test_selected_stage = test_packed.instantiate() as CombatStage
@@ -56,8 +56,7 @@ func _combat_state_entered(new_state: CombatState) -> void:
 				start_transition(CombatState.PLAYER_TURN)
 
 			CombatState.PLAYER_TURN:
-				end_turn_button.disabled = false
-				end_turn_button.visible = true
+				dashboard.open_dashboard()
 				emit_signal("start_draw")
 
 			CombatState.END_TURN:
@@ -69,7 +68,7 @@ func _combat_state_entered(new_state: CombatState) -> void:
 
 				await get_tree().create_timer(1.5).timeout
 				start_transition(CombatState.START_TURN)
-
+	# TODO: Dont need this else statement
 	else:
 		# Combat finished
 		if test_selected_stage != null:
@@ -101,8 +100,7 @@ func start_combat() -> void:
 	print("Current game state:", GameManager.get_game_state())
 	print("Starting Combat")
 
-	end_turn_button.disabled = true
-	end_turn_button.visible = false
+	dashboard.close_dashboard()
 
 	emit_signal("start_combat_signal")
 	start_transition(CombatState.START_TURN)
@@ -238,7 +236,7 @@ func clear_player_slots() -> void:
 
 
 func end_turn_pressed() -> void:
-	end_turn_button.disabled = true
+	dashboard.close_dashboard()
 	set_state(CombatState.END_TURN)
 
 func set_background(bg: Texture2D) -> void:
