@@ -63,22 +63,6 @@ grow_vertical = 2
 mouse_filter = 2
 expand_mode = 3
 
-[node name="DashboardUI" type="PanelContainer" parent="CanvasLayer/CombatControl"]
-z_index = 2
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -31.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="TestButton" type="Button" parent="CanvasLayer/CombatControl/DashboardUI"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "End Turn"
-
 [node name="PartyPosition" type="PanelContainer" parent="CanvasLayer/CombatControl"]
 layout_mode = 1
 anchors_preset = -1
@@ -142,13 +126,13 @@ offset_bottom = 40.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition"]
 layout_mode = 2
-mouse_filter = 0
+mouse_filter = 2
 
 [node name="EPLayer1" type="HBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer"]
 custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 0
+mouse_filter = 2
 
 [node name="1EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
 layout_mode = 2
@@ -160,12 +144,14 @@ slot_number = 1
 [node name="2EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("4_6j7wa")
 slot_number = 2
 
 [node name="5EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("4_6j7wa")
 slot_number = 5
 
@@ -173,22 +159,43 @@ slot_number = 5
 custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 0
+mouse_filter = 2
 
 [node name="3EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("4_6j7wa")
 slot_number = 3
 
 [node name="4EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("4_6j7wa")
 slot_number = 4
 
 [node name="6EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("4_6j7wa")
 slot_number = 6
+
+[node name="DashboardUI" type="PanelContainer" parent="CanvasLayer/CombatControl"]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.884
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="TestButton" type="Button" parent="CanvasLayer/CombatControl/DashboardUI"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 8
+text = "End Turn"
