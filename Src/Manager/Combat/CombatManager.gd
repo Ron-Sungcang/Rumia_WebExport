@@ -93,6 +93,8 @@ func start_combat() -> void:
 	load_combat_stage_res()
 	set_combat_slots()
 	
+	#Refactor since party positions are basically the same code
+	#Make a new function that just assigns units to slots used by both
 	set_party_positions()
 	set_enemy_positions()
 
@@ -128,51 +130,20 @@ func load_combat_stage_res() -> void:
 	print("Loaded Combat stage res ", test_selected_stage.name)
 
 func set_combat_slots() -> void:
-	if UnitManager.party_units.size() <= 2:
-		party_slot_layers[1].visible = false
-		available_p_slots = 2
-	else:
-		party_slot_layers[1].visible = true
-		available_p_slots = 4
+	var e_slot_count = 0
 	
-	set_party_slots()
+	available_p_slots = 2 if UnitManager.party_units.size() <= 2 else 4
+	party_slot_layers[1].visible = available_p_slots > 2
+	set_slot_visibility(player_slots, UnitManager.party_units.size())
 	
-	if test_selected_stage.resource.enemy_slots <= 3:
-		enemy_slot_layers[1].visible = false
-		available_e_slots = 3
-		print("Available e slots == 3")
-	else:
-		enemy_slot_layers[1].visible = true
-		available_e_slots = 6
-		print("Available e slots == 6")
-	
-	set_enemy_slots()
+	e_slot_count = test_selected_stage.resource.enemy_slots
+	available_e_slots = 3 if e_slot_count <= 3 else 6
+	enemy_slot_layers[1].visible = available_e_slots > 3
+	set_slot_visibility(enemy_slots, e_slot_count if e_slot_count < available_e_slots else available_e_slots)
 
-func set_party_slots() -> void:
-	var curr_slot := 1
-	for i in player_slots:
-		if curr_slot <= UnitManager.party_units.size():
-			i.visible = true
-		else:
-			i.visible = false
-		
-		curr_slot += 1
-		if curr_slot > available_p_slots:
-			return
-
-func set_enemy_slots() -> void:
-	var curr_slot := 1
-	print("Enemy slots", test_selected_stage.resource.enemy_slots)
-	for i in enemy_slots:
-		if curr_slot <= test_selected_stage.resource.enemy_slots:
-			i.visible = true
-		else:
-			i.visible = false
-			
-		curr_slot += 1
-		
-		if curr_slot > available_e_slots:
-			return
+func set_slot_visibility(slots: Array, available_slots: int) -> void:
+	for i in range(slots.size()):
+		slots[i].visible = i < available_slots
 
 func set_party_positions() -> void:
 	var party_list = UnitManager.get_party_list()
