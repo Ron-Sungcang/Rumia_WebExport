@@ -1,0 +1,197 @@
+[gd_scene load_steps=6 format=3 uid="uid://cua280fkkdtvp"]
+
+[ext_resource type="Script" uid="uid://dhwscromau4p0" path="res://Src/Manager/Combat/CombatManager.gd" id="1_m158t"]
+[ext_resource type="Texture2D" uid="uid://dhiuagv4gvreo" path="res://Assets/Images/TestBG/CombatBGOutline.png" id="1_tsjpf"]
+[ext_resource type="Script" uid="uid://ca8cj6ue6mjo0" path="res://Src/Stage/CombatSlots/PartySlot.gd" id="3_vmj1g"]
+[ext_resource type="Script" uid="uid://cbsq6cdoq8g8k" path="res://Src/Stage/CombatSlots/EnemySlot.gd" id="4_6j7wa"]
+[ext_resource type="Script" uid="uid://bohnloapcnifj" path="res://Src/UI/Combat/DashBoard.gd" id="5_yhlog"]
+
+[node name="CombatSceneV2" type="Control" node_paths=PackedStringArray("ui", "dashboard", "background", "combat_bg", "party_slot_layers", "enemy_slot_layers", "player_slots", "enemy_slots")]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m158t")
+ui = NodePath("CanvasLayer/CombatControl")
+dashboard = NodePath("CanvasLayer/CombatControl/DashboardUI")
+background = NodePath("Background")
+combat_bg = NodePath("CanvasLayer/CombatControl/CombatBG")
+party_slot_layers = [NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1"), NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2")]
+enemy_slot_layers = [NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2")]
+player_slots = [NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1/1PPosition"), NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1/2PPosition"), NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2/3PPosition"), NodePath("CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2/4PPosition")]
+enemy_slots = [NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1/1EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1/2EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2/3EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2/4EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1/5EPosition"), NodePath("CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2/6EPosition")]
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_tsjpf")
+expand_mode = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CombatControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/CombatControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CombatBG" type="TextureRect" parent="CanvasLayer/CombatControl"]
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.485
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 3
+
+[node name="PartyPosition" type="PanelContainer" parent="CanvasLayer/CombatControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.488
+anchor_right = 0.465
+anchor_bottom = 0.865
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CombatControl/PartyPosition"]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="PPLayer1" type="HBoxContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="2PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_vmj1g")
+slot_number = 2
+
+[node name="1PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_vmj1g")
+slot_number = 1
+
+[node name="PPLayer2" type="HBoxContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="4PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_vmj1g")
+slot_number = 4
+
+[node name="3PPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/PartyPosition/VBoxContainer/PPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_vmj1g")
+slot_number = 3
+
+[node name="EnemyPosition" type="PanelContainer" parent="CanvasLayer/CombatControl"]
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.488
+anchor_right = 0.965
+anchor_bottom = 0.865
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition"]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="EPLayer1" type="HBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="1EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_6j7wa")
+slot_number = 1
+
+[node name="2EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_6j7wa")
+slot_number = 2
+
+[node name="5EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_6j7wa")
+slot_number = 5
+
+[node name="EPLayer2" type="HBoxContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="3EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_6j7wa")
+slot_number = 3
+
+[node name="4EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_6j7wa")
+slot_number = 4
+
+[node name="6EPosition" type="PanelContainer" parent="CanvasLayer/CombatControl/EnemyPosition/VBoxContainer/EPLayer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_6j7wa")
+slot_number = 6
+
+[node name="DashboardUI" type="PanelContainer" parent="CanvasLayer/CombatControl" node_paths=PackedStringArray("end_turn")]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.884
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+script = ExtResource("5_yhlog")
+end_turn = NodePath("TestButton")
+
+[node name="TestButton" type="Button" parent="CanvasLayer/CombatControl/DashboardUI"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 8
+text = "End Turn"

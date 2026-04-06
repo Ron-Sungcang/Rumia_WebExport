@@ -16,6 +16,9 @@ class_name CombatManager
 var available_p_slots: int
 var available_e_slots: int
 
+var reserve_party_units: Array[PartyUnit]
+var reserve_enemy_units: Array[EnemyUnit]
+
 var test_selected_stage: CombatStage = null
 var state: CombatState
 
@@ -85,11 +88,9 @@ func start_combat() -> void:
 	GameManager.set_game_state(GameManager.GameState.COMBAT)
 	CursorManager.current_ui = ui
 
-	clear_enemy_slots()
-	clear_player_slots()
+	reset_combat_status()
 	
 	load_combat_stage_res()
-	
 	set_combat_slots()
 	
 	set_party_positions()
@@ -139,9 +140,11 @@ func set_combat_slots() -> void:
 	if test_selected_stage.resource.enemy_slots <= 3:
 		enemy_slot_layers[1].visible = false
 		available_e_slots = 3
+		print("Available e slots == 3")
 	else:
 		enemy_slot_layers[1].visible = true
 		available_e_slots = 6
+		print("Available e slots == 6")
 	
 	set_enemy_slots()
 
@@ -180,17 +183,20 @@ func set_party_positions() -> void:
 	var curr_slot := 1
 	for i in party_list.size():
 		if curr_slot > player_slots.size():
-			break
-
+			reserve_party_units.append(party_list[i])
+		
 		if party_list[i].is_alive and not player_slots[curr_slot - 1].slot_taken:
 			party_list[i].position_slot = curr_slot
 			spawn_character(party_list[i], player_slots[curr_slot - 1])
 			curr_slot += 1
+	
+	print("Reserved Party size: ", reserve_party_units.size())
 
 
 func spawn_character(unit: PartyUnit, slot: PartySlot) -> void:
 	#UnitManager.remove_from_party_team(unit)
 	slot.add_party_scene(unit)
+	unit.visible = true
 
 
 func set_enemy_positions() -> void:
@@ -204,28 +210,32 @@ func set_enemy_positions() -> void:
 	var curr_slot := 1
 	for i in enemy_list.size():
 		if curr_slot > enemy_slots.size() or curr_slot > test_selected_stage.resource.enemy_slots:
-			break
-
+			reserve_enemy_units.append(enemy_list[i])
+		
 		if enemy_list[i].is_alive and not enemy_slots[curr_slot - 1].slot_taken:
 			enemy_list[i].position_slot = curr_slot
 			spawn_enemy(enemy_list[i], enemy_slots[curr_slot - 1])
 			curr_slot += 1
-
+	
+	print("Reserved Enemy size: ", reserve_enemy_units.size())
 
 func spawn_enemy(unit: EnemyUnit, slot: EnemySlot) -> void:
 	#UnitManager.remove_from_enemy_team(unit)
 	slot.add_enemy_scene(unit)
+	unit.visible = true
 
 
-func start_transition(next: CombatState) -> void:
-	print("Transitioning to:", next)
-	set_state(next)
 
+func reset_combat_status() -> void:
+	reserve_party_units.clear()
+	reserve_enemy_units.clear()
+	
+	clear_enemy_slots()
+	clear_player_slots()
 
 func clear_enemy_slots() -> void:
 	for slot in enemy_slots:
 		slot.clear_scene()
-
 
 func clear_player_slots() -> void:
 	if player_slots == null:
@@ -234,6 +244,11 @@ func clear_player_slots() -> void:
 	for slot in player_slots:
 		slot.clear_scene()
 
+
+
+func start_transition(next: CombatState) -> void:
+	print("Transitioning to:", next)
+	set_state(next)
 
 func end_turn_pressed() -> void:
 	dashboard.close_dashboard()
