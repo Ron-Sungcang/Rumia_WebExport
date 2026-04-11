@@ -16,6 +16,7 @@ var max_hp: int
 @export var position_slot: int
 @export var in_combat: bool = false
 @export var unit_image: TextureRect
+@export var hp_bar: TextureProgressBar
 
 
 # Property equivalent to C# CurrentHP

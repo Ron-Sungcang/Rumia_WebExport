@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuq3k770r1t62"]
+[gd_scene load_steps=3 format=3 uid="uid://cuq3k770r1t62"]
 
 [ext_resource type="Script" uid="uid://baunmvihhg2h1" path="res://Src/Units/PartyUnits/PartyUnit.gd" id="1_2wrrn"]
+[ext_resource type="Script" uid="uid://b45ljaevhts0q" path="res://Src/Manager/Combat/HPBar.gd" id="2_xui0g"]
 
-[node name="TestPlayerV2" type="Control" node_paths=PackedStringArray("texture_button", "unit_image")]
+[node name="TestPlayerV2" type="Control" node_paths=PackedStringArray("texture_button", "unit_image", "hp_bar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +14,7 @@ mouse_filter = 2
 script = ExtResource("1_2wrrn")
 texture_button = NodePath("TextureRect/TextureButton")
 unit_image = NodePath("TextureRect")
+hp_bar = NodePath("TextureRect/TextureProgressBar")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = 2
@@ -38,3 +40,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_xui0g")
