@@ -16,7 +16,7 @@ var max_hp: int
 @export var position_slot: int
 @export var in_combat: bool = false
 @export var unit_image: TextureRect
-@export var hp_bar: TextureProgressBar
+@export var hp_bar: HPBar
 
 
 # Property equivalent to C# CurrentHP
@@ -32,8 +32,7 @@ var current_hp: int:
 
 
 func _ready() -> void:
-	# current_hp = max_hp
-	pass
+	hp_bar.initialize(max_hp, curr_hp)
 
 
 func _process(delta: float) -> void:
