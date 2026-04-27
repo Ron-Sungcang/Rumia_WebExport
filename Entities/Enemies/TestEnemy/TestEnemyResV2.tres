@@ -8,5 +8,6 @@
 script = ExtResource("1_noonn")
 unit_name = "V2 Enemy"
 max_hp = 4
+base_power = 2
 unit_prefab = ExtResource("2_v7k1u")
 unit_image = ExtResource("2_8yq4k")

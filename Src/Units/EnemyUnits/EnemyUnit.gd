@@ -27,9 +27,11 @@ func _process(delta: float) -> void:
 	pass
 
 
+#TODO: Similar to party initialize, refactor later
 func initialize(enemy_res: EnemyRes) -> void:
 	unit_name = enemy_res.unit_name
 	max_hp = enemy_res.max_hp
+	total_attack = enemy_res.base_power + power
 	
 	set_sprite(enemy_res.unit_image)
 

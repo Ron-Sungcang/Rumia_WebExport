@@ -7,5 +7,6 @@
 [resource]
 script = ExtResource("1_g1sp8")
 unit_name = "V2 Player"
+base_power = 3
 unit_prefab = ExtResource("2_yha4r")
 unit_image = ExtResource("2_16of8")

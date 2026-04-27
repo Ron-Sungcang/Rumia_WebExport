@@ -42,4 +42,3 @@ grow_vertical = 2
 layout_mode = 1
 offset_left = -50.0
 offset_right = 50.0
-nine_patch_stretch = true

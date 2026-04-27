@@ -9,6 +9,7 @@ There should be more classes that inherit this class
 # Basic unit data
 var unit_name: String
 var max_hp: int
+var total_attack: int
 
 # Exported / editable in inspector
 @export var curr_hp: int
@@ -18,6 +19,8 @@ var max_hp: int
 @export var unit_image: TextureRect
 @export var hp_bar: HPBar
 
+#Stats
+@export var power: int
 
 # Property equivalent to C# CurrentHP
 var current_hp: int:

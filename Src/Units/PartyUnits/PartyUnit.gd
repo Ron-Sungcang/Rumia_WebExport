@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 func initialize(party_res: PartyRes) -> void:
 	unit_name = party_res.unit_name
 	max_hp = party_res.max_hp
+	total_attack = party_res.base_power + power
 	
 	set_sprite(party_res.unit_image)
 

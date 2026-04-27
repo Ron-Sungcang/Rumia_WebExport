@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardRes" load_steps=5 format=3 uid="uid://pha40t1vxq43"]
+
+[ext_resource type="Script" uid="uid://cou2wkvhhhuwm" path="res://Src/Card/CardEffects/CardEffect.gd" id="1_duydu"]
+[ext_resource type="Script" uid="uid://dul73r1vup6ad" path="res://Src/Card/CardRes.gd" id="2_7e2ja"]
+[ext_resource type="Script" uid="uid://cyni2repmfyd" path="res://Src/Card/CardEffects/DamageEffect.gd" id="2_62tk4"]
+
+[sub_resource type="Resource" id="Resource_8b7as"]
+script = ExtResource("2_62tk4")
+metadata/_custom_type_script = "uid://cyni2repmfyd"
+
+[resource]
+script = ExtResource("2_7e2ja")
+card_name = "Attack"
+card_description = "Normal attack"
+effects = Array[ExtResource("1_duydu")]([SubResource("Resource_8b7as")])
