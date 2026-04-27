@@ -10,6 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+#TODO: Maybe dont need to change cursors, use other visual cues
 func pointer_cursor() -> void:
 	if current_ui == null:
 		return
