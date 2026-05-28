@@ -1,5 +1,5 @@
 extends Resource
 class_name CardEffect
 
-func execute(source: Unit, target: Unit) -> void:
+func execute(_source: Unit, _target: Unit) -> void:
 	pass

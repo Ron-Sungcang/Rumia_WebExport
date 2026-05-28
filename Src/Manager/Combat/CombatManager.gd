@@ -86,6 +86,8 @@ func _combat_state_entered(new_state: CombatState) -> void:
 
 func start_combat() -> void:
 	GameManager.set_game_state(GameManager.GameState.COMBAT)
+	Log.log("Current game state: %d" % GameManager.get_game_state(), Log.LogType.STATE_CHANGE)
+	Log.log("Starting combat", Log.LogType.LOGGING)
 	CursorManager.current_ui = ui
 
 	reset_combat_status()
@@ -99,9 +101,6 @@ func start_combat() -> void:
 	set_enemy_positions()
 
 	set_process(true)
-
-	print("Current game state:", GameManager.get_game_state())
-	print("Starting Combat")
 
 	dashboard.close_dashboard()
 
