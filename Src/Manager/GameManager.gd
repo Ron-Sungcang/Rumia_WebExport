@@ -12,8 +12,8 @@ var current_game_state
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_game_state = GameState.START_SCREEN
-	print("Game Manager started")
-	print("Game current state: ", current_game_state)
+	Log.log("Game Manager started", Log.LogType.LOGGING)
+	Log.log("Game current state: %d" % current_game_state, Log.LogType.STATE_CHANGE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
