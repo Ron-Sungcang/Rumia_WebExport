@@ -17,10 +17,10 @@ func _process(delta: float) -> void:
 
 func add_party_scene(new_scene: PartyUnit) -> void:
 	if slot_taken:
-		print("PartySlot, AddPartyScene, Party Slot:", slot_number, "is not empty")
+		Log.log("PartySlot, AddPartyScene, Party Slot: %d is not empty" % slot_number, Log.LogType.WARNING)
 		return
 	elif get_child_count() > 0:
-		print("PartySlot, AddPartyScene, Party Slot:", slot_number, "contains a child")
+		Log.log("PartySlot, AddPartyScene, Party Slot: %d contains a child" % slot_number, Log.LogType.WARNING)
 		return
 
 	unit_scene = new_scene
@@ -30,16 +30,15 @@ func add_party_scene(new_scene: PartyUnit) -> void:
 	unit_scene.in_combat = true
 	slot_taken = true
 
-	print("Successfully added Party unit:", unit_scene, "to slot:", slot_number, " at pos: ", unit_scene.position)
-	print("Party slot pos: ", position)
+	Log.log("Successfully added Party unit: %s to slot: %s at pos: %s" % [unit_scene, slot_number, unit_scene.position], Log.LogType.VALUE_CHECK)
 
 
 func clear_scene() -> void:
 	if not slot_taken:
-		print("PartySlot, ClearScene, Party Slot:", slot_number, "is empty")
+		Log.log("PartySlot, ClearScene, Party Slot: %d is empty" % slot_number, Log.LogType.VALUE_CHECK)
 		return
 	elif get_child_count() <= 0:
-		print("PartySlot, ClearScene, Party Slot:", slot_number, "doesn't contain a child")
+		Log.log("PartySlot, ClearScene, Party Slot: %d doesn't contain a child" % slot_number, Log.LogType.WARNING)
 		return
 
 	unit_scene.queue_free()

@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	pass
 
 func set_state(new_state: CombatState) -> void:
-	print("From:", state, "To:", new_state)
+	Log.log("From state: %s To state: %s" % [state, new_state], Log.LogType.STATE_CHANGE)
 	state = new_state
 	_combat_state_entered(state)
 
@@ -67,7 +67,7 @@ func _combat_state_entered(new_state: CombatState) -> void:
 
 			CombatState.ENEMY_TURN:
 				if not test_selected_stage.combat_stage_over:
-					print("Remaining units:", test_selected_stage.remaining_units)
+					Log.log("Remaining units: %d" % test_selected_stage.remaining_units, Log.LogType.VALUE_CHECK)
 
 				await get_tree().create_timer(1.5).timeout
 				start_transition(CombatState.START_TURN)
@@ -110,14 +110,14 @@ func start_combat() -> void:
 
 func load_combat_stage_res() -> void:
 	if StageManager.selected_combat_res == null:
-		print("Empty combat stage on StageManager")
+		Log.log("Empty combat stage on StageManager", Log.LogType.ERROR)
 		return
 	
 	set_background(StageManager.selected_combat_res.background)
 	set_combat_bg(StageManager.selected_combat_res.combat_bg)
 	
 	if StageManager.selected_combat_res.enemy_slots > 6:
-		print("Invalid number of enemy slots")
+		Log.log("Invalid number of enemy slots", Log.LogType.ERROR)
 		return
 	
 	test_selected_stage = (
@@ -126,7 +126,7 @@ func load_combat_stage_res() -> void:
 	)
 
 	test_selected_stage.initialize(StageManager.selected_combat_res)
-	print("Loaded Combat stage res ", test_selected_stage.name)
+	Log.log("Loaded Combat stage res %s" % test_selected_stage.name, Log.LogType.LOGGING)
 
 func set_combat_slots() -> void:
 	var e_slot_count = 0
@@ -146,8 +146,9 @@ func set_slot_visibility(slots: Array, available_slots: int) -> void:
 
 func set_party_positions() -> void:
 	var party_list = UnitManager.get_party_list()
+	
 	if party_list == null:
-		print("Party list is null")
+		Log.log("Party list is null", Log.LogType.WARNING)
 		return
 
 	var curr_slot := 1
@@ -160,7 +161,7 @@ func set_party_positions() -> void:
 			spawn_character(party_list[i], player_slots[curr_slot - 1])
 			curr_slot += 1
 	
-	print("Reserved Party size: ", reserve_party_units.size())
+	Log.log("Reserved Party size: %s" % reserve_party_units.size(), Log.LogType.VALUE_CHECK)
 
 
 func spawn_character(unit: PartyUnit, slot: PartySlot) -> void:
@@ -170,11 +171,9 @@ func spawn_character(unit: PartyUnit, slot: PartySlot) -> void:
 
 
 func set_enemy_positions() -> void:
-	print("SetEnemy called")
-
 	var enemy_list = UnitManager.get_enemy_list()
 	if enemy_list == null:
-		print("Enemy list is null")
+		Log.log("Enemy list is null", Log.LogType.WARNING)
 		return
 
 	var curr_slot := 1
@@ -187,13 +186,12 @@ func set_enemy_positions() -> void:
 			spawn_enemy(enemy_list[i], enemy_slots[curr_slot - 1])
 			curr_slot += 1
 	
-	print("Reserved Enemy size: ", reserve_enemy_units.size())
+	Log.log("Reserved Enemy size: %s" % reserve_enemy_units.size(), Log.LogType.VALUE_CHECK)
 
 func spawn_enemy(unit: EnemyUnit, slot: EnemySlot) -> void:
 	#UnitManager.remove_from_enemy_team(unit)
 	slot.add_enemy_scene(unit)
 	unit.visible = true
-
 
 
 func reset_combat_status() -> void:
@@ -209,15 +207,13 @@ func clear_enemy_slots() -> void:
 
 func clear_player_slots() -> void:
 	if player_slots == null:
-		print("Empty player slot")
+		Log.log("Empty player slot", Log.LogType.ERROR)
 		return
 	for slot in player_slots:
 		slot.clear_scene()
 
-
-
 func start_transition(next: CombatState) -> void:
-	print("Transitioning to:", next)
+	Log.log("Transitioning to: %s" % next, Log.LogType.LOGGING)
 	set_state(next)
 
 func end_turn_pressed() -> void:
@@ -226,12 +222,12 @@ func end_turn_pressed() -> void:
 
 func set_background(bg: Texture2D) -> void:
 	if(bg == null):
-		print("Empty background")
+		Log.log("Empty background", Log.LogType.ERROR)
 		return
 	background.texture = bg 
 
 func set_combat_bg(bg: Texture2D) -> void:
 	if(bg == null):
-		print("Empty combat bg")
+		Log.log("Empty combat bg", Log.LogType.ERROR)
 		return
 	combat_bg.texture = bg

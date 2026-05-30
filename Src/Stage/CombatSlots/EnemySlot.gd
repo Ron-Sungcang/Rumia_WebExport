@@ -17,10 +17,10 @@ func _process(delta: float) -> void:
 
 func add_enemy_scene(new_scene: EnemyUnit) -> void:
 	if slot_taken:
-		Log.log("EnemySlot, AddEnemyScene, Enemy Slot: %s is not empty" % slot_number, Log.LogType.VALUE_CHECK)
+		Log.log("EnemySlot, AddEnemyScene, Enemy Slot: %s is not empty" % slot_number, Log.LogType.WARNING)
 		return
 	elif get_child_count() > 0:
-		print("EnemySlot, AddEnemyScene, Enemy Slot: %s contains a child" % slot_number, Log.LogType.VALUE_CHECK)
+		print("EnemySlot, AddEnemyScene, Enemy Slot: %s contains a child" % slot_number, Log.LogType.WARNING)
 		return
 
 	unit_scene = new_scene
@@ -38,7 +38,7 @@ func clear_scene() -> void:
 		Log.log("EnemySlot, ClearScene, Enemy Slot: %d is empty" % slot_number, Log.LogType.VALUE_CHECK)
 		return
 	elif get_child_count() <= 0:
-		Log.log("EnemySlot, ClearScene, Enemy Slot: %d doesn't contain a child" % slot_number, Log.LogType.VALUE_CHECK)
+		Log.log("EnemySlot, ClearScene, Enemy Slot: %d doesn't contain a child" % slot_number, Log.LogType.WARNING)
 		return
 
 	unit_scene.queue_free()

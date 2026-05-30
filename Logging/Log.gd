@@ -4,7 +4,9 @@ enum LogType
 {
 	STATE_CHANGE,
 	LOGGING,
-	VALUE_CHECK
+	VALUE_CHECK,
+	WARNING,
+	ERROR
 }
 
 func _ready() -> void:
@@ -21,6 +23,12 @@ func log(message: String, log_type: LogType) -> void:
 			header = "LOGGING"
 		LogType.VALUE_CHECK:
 			header = "VALUE_CHECK"
+			color = "[color=lightblue]"
+		LogType.WARNING:
+			header = "WARNING"
 			color = "[color=orange]"
+		LogType.ERROR:
+			header = "ERROR"
+			color = "[color=red]"
 			
 	print_rich(color, header, ": " , message)

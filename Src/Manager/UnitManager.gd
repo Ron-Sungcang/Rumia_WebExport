@@ -43,14 +43,15 @@ func add_to_party_team() -> void:
 		
 		add_child(p_unit)
 		
-		print("Added to party: ", i + 1)
+		Log.log("Added to party: %d" % (i + 1), Log.LogType.VALUE_CHECK)
 
 func add_to_enemy_team() -> void:
 	if enemy_res.is_empty():
+		Log.log("Enemy resource is empty", Log.LogType.WARNING)
 		return
 	
 	for i in enemy_res.size():
-		print("Successfully added enemy on index: ", i)
+		Log.log("Successfully added enemy on index: %d" % i, Log.LogType.VALUE_CHECK)
 		
 		var e_unit := enemy_res[i].unit_prefab.instantiate() as EnemyUnit
 		
