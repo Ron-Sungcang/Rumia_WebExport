@@ -9,3 +9,5 @@ enum DamageType
 }
 
 @export var damage_type: DamageType
+@export var base_damage: int
+@export var base_percentage: float

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AttackCardRes" load_steps=6 format=3 uid="uid://duy1wgjtna801"]
+
+[ext_resource type="Script" uid="uid://og0syjtkrflr" path="res://Src/Card/CardTypes/AttackCards/AttackCardRes.gd" id="1_cydpy"]
+[ext_resource type="Script" uid="uid://cou2wkvhhhuwm" path="res://Src/Card/CardEffects/CardEffect.gd" id="1_uu02f"]
+[ext_resource type="Script" uid="uid://cyni2repmfyd" path="res://Src/Card/CardEffects/DamageEffect.gd" id="2_63tw0"]
+[ext_resource type="Texture2D" uid="uid://ugbddvk23vso" path="res://icon.svg" id="3_irrwd"]
+
+[sub_resource type="Resource" id="Resource_irrwd"]
+script = ExtResource("2_63tw0")
+metadata/_custom_type_script = "uid://cyni2repmfyd"
+
+[resource]
+script = ExtResource("1_cydpy")
+base_damage = 1
+base_percentage = 1.0
+base_card_effects = Array[ExtResource("1_uu02f")]([SubResource("Resource_irrwd")])
+card_name = "Sample Attack"
+card_image = ExtResource("3_irrwd")

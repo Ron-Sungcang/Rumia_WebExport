@@ -11,6 +11,8 @@ enum CardType {
 
 @export var card_name: String
 @export var card_type: CardType
+@export var card_prefab: PackedScene
+@export var base_card_effects: Array[CardEffect] = []
 
 #TODO: Might have to change for more accurate card description, 
 # create the card prefab, they will have a description_format var
