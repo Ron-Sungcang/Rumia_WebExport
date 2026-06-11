@@ -8,6 +8,11 @@ There should be more classes that inherit this class
 
 # Basic unit data
 var unit_name: String
+
+var att: int
+var def: int
+var res: int
+
 var max_hp: int
 var total_attack: int
 
@@ -19,8 +24,6 @@ var total_attack: int
 @export var unit_image: TextureRect
 @export var hp_bar: HPBar
 
-#Stats
-@export var power: int
 
 # Property equivalent to C# CurrentHP
 var current_hp: int:

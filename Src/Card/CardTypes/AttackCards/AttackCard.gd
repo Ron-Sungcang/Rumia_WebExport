@@ -22,5 +22,35 @@ func initialize(res_file: AttackCardRes) -> void:
 	set_image(res_file.card_image)
 
 # Might need local var for total damage?
-func play_card(p_unit: PartyUnit, card_targets: Array[EnemyUnit]) -> void:
-	pass
+func play_card() -> void:
+	if card_effects.size() == 0:
+		Log.log("Empty effects for card %s" % card_name, Log.LogType.ERROR)
+	
+	if targets.size() == 0:
+		Log.log("Empty list of targets for card: %s" % card_name, Log.LogType.ERROR)
+	
+	var total_damage: float
+	
+	for t in targets:
+		for effects in card_effects:
+			if effects is DamageEffect:
+				match damage_type:
+					AttackCardRes.DamageType.PHYSICAL:
+						# Unit attack with percentage and then take enemy physical resistance
+						# For def/res, make a func in unit called total_def/total_res,
+						# which takes unit def/res stat + def/res changes due to buffs/debuffs
+						# Same deal for unit damage
+						total_damage = calculate_total_dmg((damage + (percentage * unit.total_attack)), t.def)
+					AttackCardRes.DamageType.MAGIC:
+						total_damage = calculate_total_dmg((damage + (percentage * unit.total_attack)), t.res)
+					AttackCardRes.DamageType.HOLY:
+						total_damage = calculate_total_dmg((damage + (percentage * unit.total_attack)), t.res)
+				effects.value = total_damage
+				
+			effects.execute(unit, t)
+
+func calculate_total_dmg(dmg: float, defense: float) -> float:
+	if dmg <= defense:
+		return 0
+	
+	return (dmg - defense)

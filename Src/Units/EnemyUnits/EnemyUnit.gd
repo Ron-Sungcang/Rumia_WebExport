@@ -31,7 +31,10 @@ func _process(delta: float) -> void:
 func initialize(enemy_res: EnemyRes) -> void:
 	unit_name = enemy_res.unit_name
 	max_hp = enemy_res.max_hp
-	total_attack = enemy_res.base_power + power
+	
+	total_attack = enemy_res.base_power 
+	def = enemy_res.base_def
+	res = enemy_res.base_res
 	
 	set_sprite(enemy_res.unit_image)
 
